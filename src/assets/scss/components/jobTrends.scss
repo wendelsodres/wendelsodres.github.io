@@ -1,0 +1,120 @@
+.wss__trends {
+   padding-top: $gutter;
+   padding-bottom: $gutter;
+   @include f-mont;
+   background-color: $gray;
+   text-align: center;
+
+   .title__job {
+      @include font-size(2.2);
+      font-weight: 300;
+      color: $white;
+
+      strong {
+         font-weight: 500;
+      }
+   }
+
+   .portfolio__group {
+      margin: $gutter 0;
+      font-size: 0;
+      overflow-x: auto;
+      white-space: nowrap;
+
+      .crop_img {
+         max-height: 200px;
+         overflow: hidden;
+         background-color: $gray;
+
+         img {
+            display: block;
+            margin: 0 auto;
+         }
+      }
+
+      .item {
+         background-color: $gray;
+         display: inline-block;
+         margin: 0 $gutter/2;
+         vertical-align: top;
+         transition: all .5s ease-in-out;
+
+         a {
+            display: block;
+            color: $gray;
+         }
+      }
+   }
+
+   .btn__view-all {
+      @include font-size(1.4);
+      transition: all .5s;
+
+      &:after {
+         @include pseudo;
+         font-size: 16px;
+         display: inline-block;
+         font-family: 'FontAwesome';
+         content: '\f105';
+         margin-left: $gutter;
+         vertical-align: middle;
+      }
+   }
+}
+
+@include above(768px) {
+
+   .wss__trends {
+      background-color: $white;
+      margin: $gutter*2 0;
+
+      .title__job {
+         @include font-size(2.4);
+         font-weight: 300;
+         color: $gray;
+      }
+
+      .portfolio__group {
+         margin: $gutter 0;
+         overflow-x: normal;
+         white-space: normal;
+
+         .item {
+            width: calc(100% / 4 - 16px);
+            margin-top: $gutter;
+            margin-bottom: $gutter;
+
+            &:hover {
+               img {
+                  transform: scale(1.1);
+                  transition: all .5s;
+               }
+            }
+            a {
+               display: block;
+            }
+
+            .name__project {
+               @include font-size(1.3);
+               padding: $gutter/2 0;
+               background-color: $white;
+               border: 1px solid #ccc;
+               border-top: 0;
+            }
+
+            &.hidden {
+               opacity: 0;
+               transform: scale(0);
+               width: 0;
+               height: 0;
+               visibility: hidden;
+            }
+         }
+      }
+
+      .btn__view-all {
+         @include font-size(2);
+
+      }
+   }
+}

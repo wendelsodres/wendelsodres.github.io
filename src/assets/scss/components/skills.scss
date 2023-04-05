@@ -1,0 +1,56 @@
+.wss {
+
+   &__skill {
+      margin: $gutter*2 0;
+   }
+
+   &__skill-col:nth-of-type(1){
+      text-align: center;
+   }
+
+   &__picture {
+      width: 120px;
+      height: 120px;
+      margin: $gutter auto;
+      overflow: hidden;
+      border-radius: 100%;
+   }
+
+   &__biograf {
+      .title {
+         @include f-mont;
+         @include font-size(2);
+         font-weight: 300;
+         margin-bottom: $gutter/2;         
+      }
+
+      p {
+         @include font-size(1.4);
+         line-height: 1.6;
+      }
+   }
+
+   &__skill-list{
+      margin: $gutter 0;
+   }
+}
+
+@include above(768px) {
+
+   .wss {
+
+      &__picture {
+         margin: 0;  
+         display: inline-block;
+         vertical-align: top;
+      }
+   
+      &__biograf {
+         width: calc(100% - 130px);
+         padding-left: $gutter*2;
+         text-align: left;
+         margin-top: 20px;  
+         display: inline-block;       
+      }   
+   }
+}

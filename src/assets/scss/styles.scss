@@ -1,0 +1,22 @@
+
+//Core
+@import './core/colors.scss';
+@import './core/variables.scss';
+@import './core/mixins.scss';
+
+
+@import './components/reset.scss';
+@import './components/common.scss';
+@import './components/slick.scss';
+
+//Components
+@import './components/header.scss';
+@import './components/filter.scss';
+@import './components/personMind.scss';
+@import './components/jobTrends.scss';
+@import './components/skills.scss';
+@import './components/about.scss';
+@import './components/portfolio.scss';
+@import './components/contact.scss';
+@import './components/footer.scss';
+@import './components/transitions.scss';

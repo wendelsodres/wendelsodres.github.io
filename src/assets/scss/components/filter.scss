@@ -1,0 +1,32 @@
+.filter__jobs {
+   text-align: center;
+   margin: $gutter/2 0;
+   display: none;
+
+   li {
+      display: inline-block;
+      color: $white;
+      @include font-size(1.2);
+      padding: $gutter/4 $gutter/2;
+   }
+}
+
+@include above(768px) {
+
+   .filter__jobs {
+      display: block;
+   
+      li {
+         vertical-align: top;
+         color: $gray;
+         @include font-size(1.6);
+         cursor: pointer;
+
+         &.active {
+            color: $orange;
+            transition: all .5s;
+         }
+         
+      }
+   }
+}

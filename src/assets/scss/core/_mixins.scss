@@ -1,0 +1,153 @@
+@mixin above($bk) {
+
+   @each $current-bk in $bk {
+      @media only screen and (min-width: #{$current-bk}) {
+         @content;
+      }
+   }
+}
+
+@mixin below($bk) {
+
+   @each $current-bk in $bk {
+      @media only screen and (max-width: #{$current-bk}) {
+         @content;
+      }
+   }
+}
+
+@mixin rabove($bk) {
+
+   @media only screen and (-webkit-min-device-pixel-ratio: 2),
+   only screen and (min--moz-device-pixel-ratio: 2),
+   only screen and (-o-min-device-pixel-ratio: 2/1),
+   only screen and (min-device-pixel-ratio: 2),
+   only screen and (min-resolution: 192dpi),
+   only screen and (min-resolution: 2dppx),
+   only screen and (min-width: #{$bk}) {
+      @content;
+   }
+}
+
+//
+//  some utils classes
+//  _____________________________________________
+
+
+// instant create a element inside pseudo selectors like :before and :after;
+@mixin pseudo() {
+   content: " ";
+   font-size: 0;
+   display: block;
+}
+
+.pseudo {
+   @include pseudo();
+}
+
+@mixin wrapper() {
+   margin: 0 auto;
+   max-width: $layout-max-w;
+
+   padding: 0 $gutter;
+
+   &:before,
+   &:after {
+      @include pseudo();
+      clear: both;
+   }
+}
+
+.wrapper {
+   @include wrapper();
+}
+
+@mixin clear() {
+
+   &:before,
+   &:after {
+      @include pseudo();
+      clear: both;
+   }
+}
+
+.clear {
+   @include clear();
+}
+
+.is__loading {
+   position: relative;
+
+   &:before {
+      content: " ";
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(0deg);
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      border-style: solid;
+      animation: loader 500ms linear infinite;
+      border-width: 2px;
+      z-index: 999;
+   }
+
+   &:after {
+      content: " ";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, .8);
+      z-index: 998;
+   }
+
+   @keyframes loader {
+      to {
+         transform: translate(-50%, -50%) rotate(360deg);
+      }
+   }
+
+   @keyframes loader {
+      to {
+         transform: translate(-50%, -50%) rotate(360deg);
+      }
+   }
+
+   @keyframes fadein {
+      from {
+         opacity: 0;
+      }
+
+      to {
+         opacity: 1;
+      }
+   }
+}
+
+.element__desk {
+   display: none !important;
+}
+
+@include above(768px) {
+   .element__mobile {
+      display: none !important;
+   }
+
+   .element__desk {
+      display: block !important;
+   }
+}
+
+//
+//  Font
+//  _____________________________________________
+
+@mixin font-size($sizeValue) {
+   $remValue: $sizeValue;
+   $pxValue: ($sizeValue * 10);
+   font-size: #{$pxValue}px;
+   font-size: #{$remValue}rem;
+}

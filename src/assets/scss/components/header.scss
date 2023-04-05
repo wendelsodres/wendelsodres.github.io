@@ -1,0 +1,255 @@
+.wss {
+
+   &__fx {
+      display: none;
+   }
+
+   &__header {
+      height: 60px;
+      box-shadow: 0 0 12px -5px rgba(0, 0, 0, .8);
+   }
+
+   &__logo {
+      max-width: 180px;
+      padding-top: 10px;
+
+      a {
+         display: block;
+      }
+
+      span {
+         width: 0;
+         height: 0;
+         position: absolute;
+         display: inline-block;
+         overflow: hidden;
+      }
+   }
+
+   &__main {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      font-size: 0;
+      z-index: 99;
+      transition: all .5s;
+
+      &.active {
+         left: 0;
+      }
+
+      >ul {
+         width: calc(100% - 50px);
+         height: 100%;
+         display: inline-block;
+         vertical-align: top;
+         background-color: $black;
+      }
+
+      &-btn {
+         position: relative;
+         width: 50px;
+         height: 100%;
+         display: inline-block;
+         background: rgba(0, 0, 0, .8);
+
+         &:after {
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            background-color: $orange;
+            color: $white;
+            @include pseudo;
+            font-family: 'Material Icons';
+            content: '\e5cd';
+            text-align: center;
+            font-size: 30px;
+         }
+      }
+
+      .menu-item {
+         position: relative;
+         line-height: 35px;
+         border-bottom: 1px solid $gray;
+
+         &:after {
+            position: absolute;
+            top: 0;
+            right: $gutter;
+            @include pseudo;
+            font-family: 'FontAwesome';
+            content: '\f105';
+            font-size: 18px;
+            color: $white;
+            line-height: 35px;
+         }
+
+         >a {
+            color: $white;
+            padding-left: $gutter;
+            @include font-size(1.6);
+         }
+      }
+   }
+
+   &__hambu {
+      position: absolute;
+      top: $gutter;
+      right: $gutter/2;
+      width: 30px;
+      height: 30px;
+
+      &:after {
+         width: 30px;
+         height: 30px;
+         line-height: 30px;
+         color: $orange;
+         @include pseudo;
+         font-family: 'Material Icons';
+         content: '\e5d2';
+         text-align: center;
+         font-size: 30px;
+      }
+   }
+}
+
+@include above(768px) {
+
+   .wss {
+
+      &__address {
+         width: calc(100% - 60px);
+         display: inline-block;
+
+         li {
+            display: inline-block;
+         }
+
+         a {
+            @include font-size(1.4);
+         }
+
+         .ic__email {
+
+            color: $gray;
+            font-weight: 300;
+
+            &:before {
+               @include pseudo;
+               display: inline-block;
+               font-family: "FontAwesome";
+               content: '\f003';
+               font-size: 14px;
+               margin-right: $gutter/2;
+            }
+         }
+      }
+
+      &__hambu {
+         display: none;
+      }
+
+      &__fx {
+         position: relative;
+         display: block;
+         background-color: $aquaHaze;
+         padding: $gutter/2 0;
+
+         .wss__container {
+            position: relative;
+         }
+
+         .wss__social {
+            right: 0;
+            li {
+
+               a {
+
+                  &:after {
+                     color: $gray;
+                  }
+               }
+            }
+         }
+      }
+
+      &__header {
+         height: 95px;
+         box-shadow: none;
+         position: relative;
+
+         &-fx {
+            box-shadow: 0 7px 10px -8px rgba(0, 0, 0, 0.37);
+         }
+      }
+
+      &__logo {
+         position: absolute;
+         top: 50%;
+         left: 0;
+         transform: translateY(-50%);
+         padding-top: 0;
+     }
+
+      &__main {
+         position: static;
+         width: auto;
+         height: auto;
+         line-height: 95px;
+
+         &-btn {
+            display: none;
+         }
+
+         >ul {
+            width: 100%;
+            height: auto;
+            display: inline-block;
+            vertical-align: top;
+            text-align: right;
+            background-color: $white;
+         }
+
+         .menu-item {
+            position: relative;
+            line-height: 1;
+            border-bottom: 0;
+            display: inline-block;
+            padding: 0 $gutter;
+
+            &:last-child{
+               padding-right: 0;
+            }
+
+            &:after {
+               display: none;
+            }
+
+            &.current-menu-item {
+               >a {
+                  color: $orange;
+               }
+            }
+
+            >a {
+               @include f-mont;
+               color: $gray;
+               padding-left: 0;
+               @include font-size(1.6);
+               font-weight: 500;
+
+               &.router-link-active {
+                  color: $orange;
+               }
+
+               &:hover {
+                  color: $orange;
+                  transition: all .5s;
+               }
+            }
+         }
+      }
+   }
+}

@@ -1,0 +1,130 @@
+.wss__container {
+   padding: 0 $gutter;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+   @include f-mont;
+}
+
+a {
+   color: $orange;
+}
+
+input,
+textarea {
+   height: 35px;
+   border: 1px solid $doveGray;
+}
+
+.btn__out {
+   @include font-size(1.4);
+   text-align: center;
+   border: 1px solid $orange;
+   background-color: $white;
+   display: inline-block;
+   padding: $gutter;
+   border-radius: 12px;
+
+   &:hover {
+      transition: all .5s;
+   }
+}
+
+.wss{
+
+   &__breadCrumb {
+      margin: $gutter 0;
+
+      a span{
+         color: $gray;
+      }
+
+      span {
+         margin: 0 $gutter/4;
+
+         &:last-child {
+            color: $orange;
+         }
+         &:first-child {
+            margin-left: 0;
+         }
+      }
+   }
+}
+
+.slick-arrow {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   width: 30px;
+   height: 30px;
+   font-size: 0;
+   background: rgba(0,0,0,.5);
+   border: 0;
+   padding: 0;
+   z-index: 1;
+   transition: all .5s linear;
+   cursor: pointer;
+
+   &:before {
+      @include pseudo;
+      display: inline-block;
+      font-size: 30px;
+      font-family: 'FontAwesome';
+      text-align: center;
+      line-height: 1;
+      vertical-align: middle;
+      color: $white;
+   }
+
+   &.slick-prev {
+      left: 0;
+      &:before {
+         content: '\f104';
+      }
+   }
+   &.slick-next {
+      right: 0;
+      &:before {
+         content: '\f105';
+      }
+   }
+
+   &.slick-disabled {
+      opacity: 0;
+      visibility: hidden;
+      transition: all .5s;
+   }
+}
+
+@include above(768px) {
+   .wss__container {
+      max-width: $layout-max-w;
+      margin: 0 auto;
+      padding: 0;
+   }
+
+   a {
+      &:hover {
+         transition: all .5s;
+      }
+   }
+
+   .wss{
+
+      &__breadCrumb {
+         @include font-size(1.4);
+
+         a span{
+            @include font-size(1.4);
+         }
+         span {
+            @include font-size(1.4);
+         }
+      }
+   }
+}

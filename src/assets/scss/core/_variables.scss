@@ -1,0 +1,24 @@
+//
+//  kit variables
+//  ---------------------------------------------
+$gutter: 16px;
+$layout-max-w: 1280px;
+
+$f-default: 'Roboto Condensed', sans-serif;
+$f-mont: 'Montserrat', sans-serif;
+
+@mixin f-default() {
+    font-family: $f-default;
+}
+
+.f-default {
+    @include f-default();
+}
+
+@mixin f-mont() {
+    font-family: $f-mont;
+}
+
+.f-mont {
+    @include f-mont();
+}

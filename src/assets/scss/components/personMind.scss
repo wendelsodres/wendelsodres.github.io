@@ -1,0 +1,43 @@
+.con__mind {
+
+   @include f-mont;
+   color: $gray;
+   text-align: center;
+   padding: $gutter;
+
+   .ws__mind {
+      @include font-size(1.4);
+      font-weight: 300;
+   }
+
+   strong {
+      display: block;
+      font-weight: 600;
+      @include font-size(1.1);
+   }
+}
+
+
+@include above(768px) {
+
+   .con__mind {
+
+      background-color: $gray;     
+      color: $white;   
+      .ws__mind {
+         @include font-size(2);
+         font-weight: 300;
+
+         span{
+            display: block;
+         }
+      }
+   
+      strong {
+         display: inline-block;
+         margin-left: $gutter/2;
+         font-weight: 600;
+         @include font-size(1.4);
+      }
+   }
+}

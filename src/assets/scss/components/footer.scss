@@ -1,0 +1,57 @@
+.wss {
+   &__footer {
+      background-color: $gray;
+      padding: 20px 0;
+
+      .wss__container {
+         position: relative;
+      }
+   }
+
+   &__copy {
+      @include f-mont;
+      font-weight: 300;
+      color: $white;
+      display: inline-block;
+
+      strong {
+         font-weight: 500;
+      }
+   }
+
+   &__social {
+      position: absolute;
+      top: 50%;
+      right: $gutter;
+      transform: translateY(-50%);
+
+      li {
+         display: inline-block;
+         margin:0 $gutter/4;
+
+         a {
+            display: block;
+
+            &:after {
+               @include pseudo;
+               display: inline-block;
+               font-family: 'FontAwesome';
+               font-size: 16px;
+               color: $white;
+            }
+         }
+      }
+
+      .wss__social-linkedin:after {
+         content: '\f0e1';
+      }
+
+      .wss__social-git:after {
+         content: '\f09b';
+      }
+
+      .wss__social-code:after {
+         content: '\f1cb';
+      }
+   }
+}
