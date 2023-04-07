@@ -23,9 +23,18 @@
 
     <div class="wss__container">
       <section>
-        <p>
+        <p class="text__p"> Por favor, sinta-se à vontade para enviar uma mensagem com qualquer dúvida, comentário ou sugestão que você possa ter.</p>
+
+        <p class="text__p"> Eu leio todos os e-mails cuidadosamente e tento responder o mais rápido possível. </p>
+
+        <p class="text__p"> Se você tiver alguma solicitação urgente, por favor, marque como tal e eu farei o possível para responder prontamente.</p>
+
+        <p class="text__p"> Obrigado pela sua visita!</p>
+
+        <p class="text__p">
           <strong>E-mail</strong> wendelsodres@gmail.com
         </p>
+
         <br/>
 
       </section>

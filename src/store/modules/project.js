@@ -35,6 +35,10 @@ const actions = {
                         typeProject
                         createdAt
                         description
+                        content {
+                            html
+                            text
+                        }
                         id
                         publishedAt
                         slug

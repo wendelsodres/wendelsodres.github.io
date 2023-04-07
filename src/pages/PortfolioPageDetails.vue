@@ -32,9 +32,8 @@
     <div class="box-site">
       <div class="wss__container">
         <section class="content__pages">
-          <p>
-            {{ project.description }}
-          </p>
+          <div class="project__contentHtml" v-html="project.content.html">
+          </div>
 
           <div class="wss__job">
             <h3 class="wss__img-pro">
