@@ -1,33 +1,41 @@
 <template>
     <div class="mosaicProjects">
 
-        <h3 class="title__job" v-if="title">
-            {{ title }} <strong>{{ titleSpan }} </strong>
-        </h3>
-
-        <ul class="filter__jobs">
-            <li @click="handleFilter($event.target)" data-filter="all" class="active">Todos</li>
-            <li @click="handleFilter($event.target)" data-filter="web">WebSite</li>
-            <li @click="handleFilter($event.target)" data-filter="ecommerce">E-commerce</li>
-        </ul>
-
-        <div class="portfolio__group" v-if="projects.length">
-
-            <template v-for="(item, idx) in projects">
-
-                <div class="item picture-jobs" v-if="idx < itemsQtd && item.stage == 'PUBLISHED' " :class="item.typeProject" :key="item.id">
-
-                    <router-link :to="{ name: 'details', params: { id: item.id, slug: item.slug }}">
-                        <div class="crop_img">
-                            <img v-if="item.heroImage"
-                                :src="item.heroImage.url"
-                                :alt="item.title" class="zoom-picture">
-                        </div>
-                        <p class="name__project">{{ item.typeProject }} | <strong>{{ item.title }}</strong></p>
-                    </router-link>
-                </div>
+        <div v-if="loading" class="itemContentLazy">
+            <template v-for="i in 6">
+                <div class="itemLazy lazyBg" :key="i"></div>
             </template>
         </div>
+
+        <template v-else>
+            <h3 class="title__job" v-if="title">
+                {{ title }} <strong>{{ titleSpan }} </strong>
+            </h3>
+
+            <ul class="filter__jobs">
+                <li @click="handleFilter($event.target)" data-filter="all" class="active">Todos</li>
+                <li @click="handleFilter($event.target)" data-filter="web">WebSite</li>
+                <li @click="handleFilter($event.target)" data-filter="ecommerce">E-commerce</li>
+            </ul>
+
+            <div class="portfolio__group" v-if="projects.length">
+
+                <template v-for="(item, idx) in projects">
+
+                    <div class="item picture-jobs" v-if="idx < itemsQtd && item.stage == 'PUBLISHED' " :class="item.typeProject" :key="item.id">
+
+                        <router-link :to="{ name: 'details', params: { id: item.id, slug: item.slug }}">
+                            <div class="crop_img">
+                                <img v-if="item.heroImage"
+                                    :src="item.heroImage.url"
+                                    :alt="item.title" class="zoom-picture">
+                            </div>
+                            <p class="name__project">{{ item.typeProject }} | <strong>{{ item.title }}</strong></p>
+                        </router-link>
+                    </div>
+                </template>
+            </div>
+        </template>
     </div>
 
 </template>
@@ -49,7 +57,8 @@ export default {
 
     computed:{
         ...mapGetters('project', {
-            projects: 'projects'
+            projects: 'projects',
+            loading: 'loading'
         })
     },
 
