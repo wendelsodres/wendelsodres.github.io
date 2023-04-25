@@ -101,6 +101,37 @@ textarea {
    }
 }
 
+.itemContentLazy {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   gap: $gutter;
+}
+
+.itemLazy {
+   width: 25%;
+   flex: 1 1 auto;
+   height: 300px;
+}
+
+.lazyBg {
+   background-image: linear-gradient(to left, #f5f5f5, #eee), linear-gradient(to right, #f5f5f5, #eee), linear-gradient(to right, #eee, #eee);
+   background-position: 0 0, 17% 0, 0 0;
+   background-size: 15% 100%, 15% 100%, 100% 100%;
+   background-repeat: no-repeat;
+   animation: skl-animation 1.5s infinite;
+
+   * {
+      opacity: 0;
+      transition: all .5s;
+   }
+}
+
+@keyframes skl-animation {
+   0% {background-position: -15% 0, 0 0, 0 0;}
+   100% {background-position: 150% 0, 165% 0, 0 0;}
+}
+
 @include above(768px) {
    .wss__container {
       max-width: $layout-max-w;

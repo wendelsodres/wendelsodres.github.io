@@ -44,34 +44,42 @@
             </li>
           </ul>
 
-          <div class="portfolio__group" v-if="projects.length">
-            <template v-for="item in projects">
-              <div
-                class="item picture-jobs"
-                :class="item.typeProject"
-                :key="item.id"
-              >
-                <router-link
-                  :to="{
-                    name: 'details',
-                    params: { id: item.id, slug: item.slug },
-                  }"
-                >
-                  <div class="crop_img">
-                    <img
-                      v-if="item.heroImage"
-                      :src="item.heroImage.url"
-                      :alt="item.title"
-                      class="zoom-picture"
-                    />
-                  </div>
-                  <p class="name__project">
-                    {{ item.typeProject }} | <strong>{{ item.title }}</strong>
-                  </p>
-                </router-link>
-              </div>
+          <div v-if="loading" class="itemContentLazy">
+            <template v-for="i in 6">
+                <div class="itemLazy lazyBg" :key="i"></div>
             </template>
           </div>
+
+          <template v-else>
+            <div class="portfolio__group" v-if="projects.length">
+              <template v-for="item in projects">
+                <div
+                  class="item picture-jobs"
+                  :class="item.typeProject"
+                  :key="item.id"
+                >
+                  <router-link
+                    :to="{
+                      name: 'details',
+                      params: { id: item.id, slug: item.slug },
+                    }"
+                  >
+                    <div class="crop_img">
+                      <img
+                        v-if="item.heroImage"
+                        :src="item.heroImage.url"
+                        :alt="item.title"
+                        class="zoom-picture"
+                      />
+                    </div>
+                    <p class="name__project">
+                      {{ item.typeProject }} | <strong>{{ item.title }}</strong>
+                    </p>
+                  </router-link>
+                </div>
+              </template>
+            </div>
+          </template>
         </div>
       </section>
     </div>
@@ -85,6 +93,7 @@ export default {
   computed: {
     ...mapGetters("project", {
       projects: "projects",
+      loading: 'loading'
     }),
   },
 
